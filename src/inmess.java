@@ -19,6 +19,7 @@ public class inmess extends JFrame{
         b1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                setVisible(false);
                 register reg=new register();
 
 
@@ -27,7 +28,9 @@ public class inmess extends JFrame{
         b2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 login log=new login();
+                setVisible(false);
             }
         });
     }

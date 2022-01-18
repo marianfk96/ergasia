@@ -26,6 +26,7 @@ public class login extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 username=tf1.getText();
                 password=tf2.getText();
+
                 if (username.equals("Mar") && password.equals("1234"))
                 {
                     msg.setText("Welcome "+username);
