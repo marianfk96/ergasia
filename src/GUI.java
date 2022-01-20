@@ -18,9 +18,9 @@ public class GUI extends JFrame {
     public HashMap<String,Integer> roles =new HashMap<>();
     String file="data.bin";
 
-    private JTextField tfUN;
-    private JPasswordField tfPW;
+
     private JPanel mainPanel;
+    private JLabel q;
     private JButton YESButton;
     private JButton NOButton;
     private JTextField FN;
@@ -30,15 +30,22 @@ public class GUI extends JFrame {
     private JButton OKButton;
     private JButton CLEARButton;
     private JPanel REGISTER;
-    private JPanel LOGIN;
+    private JLabel fn;
+    private JLabel ln;
+    private JLabel un;
+    private JLabel pw;
+    private JLabel un1;
+    private JLabel pw1;
     private JButton OKButton1;
     private JButton CLEARButton1;
     private JTextField UN2;
     private JPasswordField PW2;
+    private JLabel r;
     private JButton providerButton;
     private JButton clientButton;
+    private JButton AdminButton;
     private JLabel check;
-    private JPanel PROVIDER;
+    private JPanel LOGIN;
     private JButton yes;
     private JButton loginButton;
 
@@ -142,6 +149,10 @@ public class GUI extends JFrame {
                 }
             }
         });
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 
 

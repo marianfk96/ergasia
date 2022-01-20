@@ -7,6 +7,7 @@ public class Main
     {
         //inmess inm=new inmess();
         JFrame f1=new GUI();
+        f1.setVisible(true);
 
 
 
