@@ -27,7 +27,7 @@ public class provui extends JFrame{
         addap.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                addap addAp=new addap();
+               addap ap=new addap();
             }
         });
         changeap.addActionListener(new ActionListener() {
