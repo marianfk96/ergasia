@@ -3,16 +3,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Data implements Serializable{
-    public HashMap<String, String> users;
-    public HashMap<String,Integer> roles;
-    public ArrayList<Provider> providers;
-    public ArrayList<Client> clients;
+    public HashMap<String, String> users =new HashMap<>();
+    public HashMap<String,Integer> roles=new HashMap<>();
+    public ArrayList<Provider> providers=new ArrayList<>();
+    public ArrayList<Client> clients=new ArrayList<>();
     String file="data.bin";
     public Data() {
-        users=new HashMap<>();
-        roles=new HashMap<>();
-        providers=new ArrayList<>();
-        clients =new ArrayList<>();
+
 
     }
     public void Save(Object obj)

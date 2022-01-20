@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class login extends JFrame {
     private JPanel login;
@@ -26,8 +28,18 @@ public class login extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 username=tf1.getText();
                 password=tf2.getText();
+                Data a=new Data();
+                ArrayList<Provider>pr=(ArrayList<Provider>) a.Load();
 
-                if (username.equals("Mar") && password.equals("1234"))
+                for(Provider b :pr)
+                {
+                    System.out.println(b.username+b.password);
+                }
+
+
+                int b=1;
+
+                if (b==1)
                 {
                     msg.setText("Welcome "+username);
                     //psaxnoume rolo, anoigoume analogo ui

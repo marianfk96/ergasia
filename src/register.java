@@ -63,14 +63,9 @@ public class register extends JFrame{
                 data.Save(data.providers);
 
                 ArrayList<Provider> pros=(ArrayList<Provider>) data.Load();
-                for (Provider b: pros)
+                for (Provider b: data.providers)
                 {
                     System.out.println(b.username+" "+b.password);
-                }
-                HashMap<String,Integer> rol=( HashMap<String,Integer>) data.Load();
-                for (int i=0;i<rol.size();i++)
-                {
-                    System.out.println(rol.keySet()     );
                 }
 
 
