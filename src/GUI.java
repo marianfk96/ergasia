@@ -46,8 +46,26 @@ public class GUI extends JFrame {
     private JButton AdminButton;
     private JLabel check;
     private JPanel LOGIN;
-    private JButton yes;
-    private JButton loginButton;
+    private JPanel PROVIDER;
+    private JButton addap;
+    private JButton changeap;
+    private JButton removeap;
+    private JButton ex;
+    private JPanel ADDAP;
+    private JTextField nametf;
+    private JTextField typetf;
+    private JTextField citytf;
+    private JTextField bedstf;
+    private JTextField availtf;
+    private JFormattedTextField codetf;
+    private JButton OKButton2;
+    private JButton CLEARButton2;
+    private JFormattedTextField prtf;
+    private JLabel checktype;
+    private JLabel checkbeds;
+    private JLabel checkprice;
+    private JLabel checkavail;
+    private JLabel finalcheck;
 
 
     public GUI()
@@ -58,6 +76,8 @@ public class GUI extends JFrame {
         CardLayout cl=(CardLayout) mainPanel.getLayout();
 
 
+
+        //INITIAL CARD BUTTONS
         YESButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -73,6 +93,10 @@ public class GUI extends JFrame {
 
             }
         });
+
+
+
+        //REGISTER CARD BUTTONS
         OKButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -93,6 +117,7 @@ public class GUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Provider a=new Provider(FN.getText(),LN.getText(),UN.getText(),PW.getText());
+
                 providers.add(a);
                 users.put(UN.getText(),PW.getText());
                 roles.put(UN.getText(),1);
@@ -118,6 +143,10 @@ public class GUI extends JFrame {
 
             }
         });
+
+
+
+        //LOGIN CARD BUTTONS
         CLEARButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -149,6 +178,133 @@ public class GUI extends JFrame {
                 }
             }
         });
+
+
+
+        //PROVIDER CARD BUTTONS
+        ex.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        addap.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                cl.show(mainPanel,"Card6");
+            }
+        });
+        changeap.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                changeap chAP=new changeap();
+            }
+        });
+        removeap.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //removeapp ui
+            }
+        });
+        OKButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int errors=0;
+                if ((typetf.getText().equals("1") || typetf.getText().equals("2")) == false) {
+                    errors++;
+                    checktype.setForeground(Color.red);
+                    checktype.setText("Type must be 1 or 2. Try again");
+                }
+                else
+                {
+                    int type=Integer.parseInt(typetf.getText());
+                }
+                try
+                {
+                    double price=Double.parseDouble(prtf.getText());
+                    if (price<=0)
+                    {
+                        checkprice.setForeground(Color.red);
+                        checkprice.setText("price must be positive");
+                        errors++;
+                    }
+                }catch (NumberFormatException n)
+                {
+                    checkprice.setForeground(Color.red);
+                    checkprice.setText("price must be a number");
+                    errors++;
+                }
+                try
+                {
+                    int beds=Integer.parseInt(bedstf.getText());
+                    if (beds<0)
+                    {
+                        checkbeds.setForeground(Color.red);
+                        checkbeds.setText("Must must have a positive value");
+                        errors++;
+                    }
+                }catch (NumberFormatException n)
+                {
+                    checkbeds.setForeground(Color.red);
+                    checkbeds.setText("Number of beds must be an integer.");
+                    errors++;
+                }
+                try
+                {
+                    int availability=Integer.parseInt(availtf.getText());
+                    if (availability<0)
+                    {
+                        checkavail.setForeground(Color.red);
+                        checkavail.setText("Availability must be positive");
+                        errors++;
+                    }
+                }catch (NumberFormatException n)
+                {
+                    checkavail.setForeground(Color.red);
+                    checkavail.setText("Availability must be an integer");
+                    errors++;
+                }
+                if (errors > 0) {
+                    finalcheck.setForeground(Color.red);
+                    finalcheck.setText("Adding apartment failed. Please insert valid parameters for your apartment.");
+
+                } else {
+                    //edw to prosthetoume to apartment
+                    Accommodation a=new Accommodation(Integer.parseInt(bedstf.getText()),Double.parseDouble(prtf.getText()),citytf.getText(),Integer.parseInt(typetf.getText()),
+                            Integer.parseInt(availtf.getText()),codetf.getText(),nametf.getText());
+                    for(Provider pr:providers)
+                    {
+                        if(UN2.getText().equals(pr.username))
+                        {
+                            pr.addAp(a);
+
+                        }
+
+                    }
+
+
+                   cl.show(mainPanel,"Card4");
+                }
+            }
+        });
+        CLEARButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                codetf.setText("");
+                nametf.setText("");
+                typetf.setText("");
+                checktype.setText("");
+                citytf.setText("");
+                bedstf.setText("");
+                checkbeds.setText("");
+                prtf.setText("");
+                checkprice.setText("");
+                availtf.setText("");
+                checkavail.setText("");
+            }
+        });
+
     }
 
     private void createUIComponents() {
