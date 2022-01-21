@@ -2,8 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-public class reservationTab extends JFrame{
+public class reservationTab extends GUI{
     private JLabel q;
     private JTextField textField1;
     private JLabel people;
@@ -93,6 +94,68 @@ public class reservationTab extends JFrame{
         return false;
     }
 
+
+    boolean browseAvailable(ArrayList<Provider> providers, int guests, String dest, int arrival, int departure)
+    {
+        boolean hasPrinted=false;
+        for (int i=0;i<providers.size();i++)
+        {
+            for (Accommodation a:providers.get(i).apartments)
+            {
+                if (a.type==1)
+                {
+                    if (a.beds>=guests && a.city.equals(dest) )
+                    {
+                        boolean flag=false;
+                        for(int date=arrival;date<departure;date++)
+                        {
+                            if (a.reservations.containsKey(date))
+                            {
+                                if (a.reservations.get(date)==a.availability)
+                                {
+                                    flag=true;
+                                }
+                            }
+                        }
+                        if (flag==false)
+                        {
+                            hasPrinted=true;
+                            System.out.println("Code:"+a.code+" Name:"+a.name+" Beds:"+a.beds+" Price:"+a.price+" euros City:"+a.city+" Type:"+a.type+" Availability:"+a.availability+"\r\n");
+                        }
+                    }
+                }
+                else
+                {
+                    if (a.city.equals(dest) && a.availability>=guests)
+                    {
+                        boolean flag=false;
+                        for(int date=arrival;date<departure;date++)
+                        {
+                            if (a.reservations.containsKey(date))
+                            {
+                                if (a.reservations.get(date)==a.availability)
+                                {
+                                    flag=true;
+                                }
+                            }
+                        }
+                        if (flag==false)
+                        {
+                            hasPrinted=true;
+                            System.out.println("Code:"+a.code+" Name:"+a.name+" Beds:"+a.beds+" Price:"+a.price+" euros City:"+a.city+" Type:"+a.type+" Availability:"+a.availability+"\r\n");
+                        }
+                    }
+                }
+            }
+        }
+        if (hasPrinted==false)
+        {
+            return false;
+        }
+        return true;
+    }
+
+
     reservationTab()
     {
         setContentPane(rese);
@@ -152,7 +215,9 @@ public class reservationTab extends JFrame{
 
                 if (errors==0)
                 {
-                    System.out.println("All good");
+                    browseAvailable(providers, Integer.parseInt(textField2.getText()), textField1.getText(), Integer.parseInt(arrivalfield.getText()), Integer.parseInt(departurefield.getText()));
+
+
 
                 }
 

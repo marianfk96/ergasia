@@ -12,4 +12,5 @@ class Client extends User implements Serializable {
         this.reservations=new ArrayList<>();
     }
 
+
 }

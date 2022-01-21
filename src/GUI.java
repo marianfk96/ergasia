@@ -77,6 +77,8 @@ public class GUI extends JFrame {
     {
         users.put("bam", "123");
         roles.put("bam", 1);
+        Provider pr=new Provider("gg", "wp", "bam", "123");
+        providers.add(pr);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
         this.pack();

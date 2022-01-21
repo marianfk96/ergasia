@@ -5,6 +5,7 @@ public class Accommodation extends JPanel {
     public int beds, availability, type;
     public double price;
     public String city, name, code;
+    public HashMap<Integer,Integer> reservations=new HashMap<>();
     public Accommodation(int beds,double price,String city,int type, int availability, String code, String name)
     {
         this.code=code;
@@ -44,4 +45,6 @@ public class Accommodation extends JPanel {
     {
         this.beds=beds;
     }
+
+
 }
