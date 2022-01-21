@@ -21,25 +21,25 @@ public class adminui extends JFrame{
         brres.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //browseresui
+                nothingToSee nts=new nothingToSee();
             }
         });
         searchRes.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //searchresui, nw rwtame by code/name
+               nothingToSee nothing=new nothingToSee();
             }
         });
         brUs.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //browseusersui
+                nothingToSee not=new nothingToSee();
             }
         });
         searchU.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //search specific ui
+                nothingToSee ntsee=new nothingToSee();
             }
         });
         ex.addActionListener(new ActionListener() {

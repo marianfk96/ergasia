@@ -71,19 +71,44 @@ public class GUI extends JFrame {
     private JPanel CLIENT;
     private JButton browseApartmentsButton;
     private JButton seeYourReservationsButton;
+    private JLabel wrong;
 
 
     public GUI()
     {
-        users.put("bam", "123");
-        roles.put("bam", 1);
-        Provider pr=new Provider("gg", "wp", "bam", "123");
-        providers.add(pr);
+        Admin a1=new Admin("Stelios", "Tsernikoudis", "tse", "1234");
+        users.put(a1.username,a1.password);
+        roles.put(a1.username,3);
+        Provider p1=new Provider("John","Doe","jd", "pw");
+        providers.add(p1);
+        users.put(p1.username,p1.password);
+        roles.put(p1.username,1);
+        Accommodation a=new Accommodation(4,100, "Athens", 1, 5,
+                "4bpr", "ImprovHotel");
+        Accommodation b= new Accommodation(3, 75.0, "Athens", 1, 5, "3bdprv", "ImprovHotel");
+        Accommodation c=new Accommodation(2, 50.0, "Athens", 1, 5, "2bddprv", "ImprovHotel");
+        p1.apartments.add(a);
+        p1.apartments.add(b);
+        p1.apartments.add(c);
+        Provider bamfil=new Provider("George", "Damianos", "bamfilakos", "leleflwrina");
+        providers.add(bamfil);
+        users.put(bamfil.username, bamfil.password);
+        roles.put(bamfil.username, 1);
+        Accommodation pr=new Accommodation(3, 40, "Thessaloniki", 1, 1, "chprr", "Crossroads Hostel");
+        Accommodation d4=new Accommodation(1, 15, "Thessaloniki", 2, 4, "4bddrm", "Crossroads Hostel");
+        Accommodation d6=new Accommodation(1, 14.5, "Thessaloniki", 2, 6, "6bddrm", "Crossroads Hostel");
+        bamfil.apartments.add(pr);
+        bamfil.apartments.add(d4);
+        bamfil.apartments.add(d6);
+        Client c1=new Client("Marianna","Foudouli","mar","456");
+        clients.add(c1);
+        users.put(c1.username,c1.password);
+        roles.put(c1.username,2);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
         this.pack();
         CardLayout cl=(CardLayout) mainPanel.getLayout();
-        Provider b=new Provider("","","1","2");
+
 
 
 
@@ -174,6 +199,20 @@ public class GUI extends JFrame {
 
                 for (String a:users.keySet())
                 {
+                    if (users.containsKey(UN2.getText())==false)
+                    {
+                        wrong.setForeground(Color.RED);
+                        wrong.setText("Username does not exist");
+
+                    }
+                    else
+                    {
+                        if (users.get(UN2.getText())!=PW2.getText())
+                        {
+                            wrong.setForeground(Color.RED);
+                            wrong.setText("Wrong password");
+                        }
+                    }
                     if(UN2.getText().equals(a) && PW2.getText().equals(users.get(a)))
                     {//HashMap<String,Integer>rol=(HashMap<String, Integer>) Load();
                         if(roles.get(UN2.getText())==1)
@@ -183,6 +222,10 @@ public class GUI extends JFrame {
                         else if(roles.get(UN2.getText())==2)
                         {
                             cl.show(mainPanel,"Card5");
+                        }
+                        else
+                        {
+                            adminui aui=new adminui();
                         }
                     }
                 }
@@ -339,6 +382,12 @@ public class GUI extends JFrame {
 
                     }
                 }*/
+            }
+        });
+        seeYourReservationsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                nothingToSee nn=new nothingToSee();
             }
         });
     }

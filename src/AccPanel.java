@@ -18,6 +18,7 @@ public class AccPanel extends  JFrame{
     {
         setContentPane(AccPanel);
         setSize(300,300);
+        setTitle("Move the window to see previous entries");
         Name.setText(a.name);
         City.setText(a.city);
         Type.setText(String.valueOf(a.type));
