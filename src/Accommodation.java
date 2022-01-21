@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-public class Accommodation {
+    class Accommodation {
     public int beds, availability, type;
     public double price;
     public String city, name, code;

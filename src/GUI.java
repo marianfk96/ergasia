@@ -10,6 +10,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class GUI extends JFrame {
     public ArrayList<Provider> providers=new ArrayList<>();
@@ -66,10 +67,13 @@ public class GUI extends JFrame {
     private JLabel checkprice;
     private JLabel checkavail;
     private JLabel finalcheck;
+    private JButton showaps;
 
 
     public GUI()
     {
+        users.put("bam", "123");
+        roles.put("bam", 1);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
         this.pack();
@@ -305,6 +309,17 @@ public class GUI extends JFrame {
             }
         });
 
+        showaps.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                table t=new table();
+                t.setTitle("Test table");
+                t.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                t.setSize(600,300);
+                t.setVisible(true);
+
+            }
+        });
     }
 
     private void createUIComponents() {

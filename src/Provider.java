@@ -15,11 +15,15 @@ public class Provider extends User implements Serializable {
     {
         this.apartments.add(a);
     }
-    public void changeAP(String code)
+    public void changeAP(String cd)
     {
         for(Accommodation a:this.apartments)
         {
-            ifc
+            if (a.code.equals(cd))
+            {
+
+
+            }
         }
     }
 

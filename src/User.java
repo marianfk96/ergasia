@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-public class User{
+        class User{
         public String username,password;
 
 
