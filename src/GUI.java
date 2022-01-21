@@ -68,6 +68,9 @@ public class GUI extends JFrame {
     private JLabel checkavail;
     private JLabel finalcheck;
     private JButton showaps;
+    private JPanel CLIENT;
+    private JButton browseApartmentsButton;
+    private JButton seeYourReservationsButton;
 
 
     public GUI()
@@ -190,7 +193,7 @@ public class GUI extends JFrame {
         ex.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                cl.show(mainPanel,"Card1");
             }
         });
         addap.addActionListener(new ActionListener() {
@@ -319,6 +322,20 @@ public class GUI extends JFrame {
                 }
 
 
+            }
+        });
+        browseApartmentsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ApPanel ap;
+                for(Provider p:providers)
+                {
+                    for(Accommodation a:p.apartments)
+                    {
+                        ap=new ApPanel(a);
+
+                    }
+                }
             }
         });
     }
