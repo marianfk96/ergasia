@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class AccPanel extends  JFrame{
-    private JButton OKButton;
+    private JButton EditButton;
     private JLabel Name;
     private JLabel City;
     private JLabel Type;
@@ -12,8 +12,9 @@ public class AccPanel extends  JFrame{
     private JLabel Code;
     private JLabel Price;
     private JPanel AccPanel;
+    private JButton removeButton;
 
-    public AccPanel(Accommodation a)
+    public AccPanel(Accommodation a,Provider p)
     {
         setContentPane(AccPanel);
         setSize(300,300);
@@ -27,10 +28,20 @@ public class AccPanel extends  JFrame{
         setVisible(true);
 
 
-        OKButton.addActionListener(new ActionListener() {
+        EditButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 changeap c=new changeap(a);
+
+            }
+        });
+        removeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                p.apartments.remove(a);
+                setVisible(false);
+
+
             }
         });
     }

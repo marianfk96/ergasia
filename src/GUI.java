@@ -200,33 +200,8 @@ public class GUI extends JFrame {
                 cl.show(mainPanel,"Card6");
             }
         });
-        changeap.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFrame acc;
-
-                for(Provider a:providers)
-                {
-                    if(UN2.getText().equals(a.username))
-                    {
-                        for (Accommodation b:a.apartments)
-                        {
-                            acc=new AccPanel(b);
 
 
-                        }
-                    }
-                }
-
-
-            }
-        });
-        removeap.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //removeapp ui
-            }
-        });
         OKButton2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -328,11 +303,21 @@ public class GUI extends JFrame {
         showaps.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                table t=new table();
-                t.setTitle("Test table");
-                t.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                t.setSize(600,300);
-                t.setVisible(true);
+                JFrame acc;
+
+                for(Provider p:providers)
+                {
+                    if(UN2.getText().equals(p.username))
+                    {
+                        for (Accommodation a:p.apartments)
+                        {
+                            acc=new AccPanel(a,p);
+
+
+                        }
+                    }
+                }
+
 
             }
         });
