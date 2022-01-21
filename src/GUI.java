@@ -327,7 +327,8 @@ public class GUI extends JFrame {
         browseApartmentsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ApPanel ap;
+                reservationTab tab=new reservationTab();
+               /* ApPanel ap;
                 for(Provider p:providers)
                 {
                     for(Accommodation a:p.apartments)
@@ -335,7 +336,7 @@ public class GUI extends JFrame {
                         ap=new ApPanel(a);
 
                     }
-                }
+                }*/
             }
         });
     }
