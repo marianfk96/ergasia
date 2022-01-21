@@ -10,7 +10,7 @@ public class setPrice extends JFrame{
     private JButton OKButton;
     private JLabel checkpr;
 
-    setPrice()
+    setPrice(Accommodation a)
     {
         setContentPane(setpr);
         setTitle("");
@@ -38,7 +38,9 @@ public class setPrice extends JFrame{
                 }
                 if (errors==0)
                 {
-                    changeap cap=new changeap();
+                    a.setPrice(Double.parseDouble(prtf.getText()));
+                    setVisible(false);
+                    //changeap cap=new changeap();
                 }
             }
         });

@@ -74,6 +74,7 @@ public class GUI extends JFrame {
         this.setContentPane(mainPanel);
         this.pack();
         CardLayout cl=(CardLayout) mainPanel.getLayout();
+        Provider b=new Provider("","","1","2");
 
 
 
@@ -198,7 +199,22 @@ public class GUI extends JFrame {
         changeap.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                changeap chAP=new changeap();
+                JFrame acc;
+
+                for(Provider a:providers)
+                {
+                    if(UN2.getText().equals(a.username))
+                    {
+                        for (Accommodation b:a.apartments)
+                        {
+                            acc=new AccPanel(b);
+
+
+                        }
+                    }
+                }
+
+
             }
         });
         removeap.addActionListener(new ActionListener() {

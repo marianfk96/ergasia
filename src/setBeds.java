@@ -10,12 +10,12 @@ public class setBeds extends JFrame{
     private JLabel chbeds;
     private JButton OKButton;
 
-    setBeds()
+    setBeds(Accommodation a)
     {
         setContentPane(setbeds);
         setTitle("");
         setSize(450,300);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
         setVisible(true);
         OKButton.addActionListener(new ActionListener() {
             @Override
@@ -38,7 +38,9 @@ public class setBeds extends JFrame{
                 }
                 if (errors==0)
                 {
-                    changeap cap=new changeap();
+                    a.setBeds(Integer.parseInt(btf.getText()));
+                    setVisible(false);
+                    //changeap cap=new changeap();
                 }
 
             }

@@ -1,6 +1,7 @@
+import javax.swing.*;
 import java.util.HashMap;
 
-public class Accommodation {
+public class Accommodation extends JPanel {
     public int beds, availability, type;
     public double price;
     public String city, name, code;
@@ -15,7 +16,7 @@ public class Accommodation {
         this.availability=availability;
 
     }
-    public void setPrice(int price)
+    public void setPrice(double price)
     {this.price=price;
 
     }

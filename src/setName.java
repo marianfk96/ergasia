@@ -8,7 +8,7 @@ public class setName extends  JFrame{
     private JTextField name;
     private JButton OKButton;
 
-    setName()
+    setName(Accommodation a)
     {
         setContentPane(setname);
         setTitle("");
@@ -18,13 +18,15 @@ public class setName extends  JFrame{
         name.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //newname=name.getText();
+
             }
         });
         OKButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                changeap cap=new changeap();
+                a.setName(name.getText());
+                setVisible(false);
+                //changeap cap=new changeap();
             }
         });
     }

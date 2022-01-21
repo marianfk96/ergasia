@@ -10,7 +10,7 @@ public class setAvail extends JFrame{
     private JButton OKButton;
     private JLabel chavail;
 
-    setAvail()
+    setAvail(Accommodation a)
     {
         setContentPane(setav);
         setTitle("");
@@ -37,8 +37,9 @@ public class setAvail extends JFrame{
                     chavail.setText("Availability must be an integer value");
                 }
                 if (errors==0)
-                {
-                    changeap cap=new changeap();
+                { a.setAvailability(Integer.parseInt(avtf.getText()));
+                    setVisible(false);
+                    //changeap cap=new changeap();
                 }
             }
         });

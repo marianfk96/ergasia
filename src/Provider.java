@@ -19,7 +19,7 @@ public class Provider extends User implements Serializable {
     {
         for(Accommodation a:this.apartments)
         {
-            ifc
+
         }
     }
 

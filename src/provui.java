@@ -33,7 +33,7 @@ public class provui extends JFrame{
         changeap.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                changeap chAP=new changeap();
+                //changeap chAP=new changeap();
             }
         });
         removeap.addActionListener(new ActionListener() {

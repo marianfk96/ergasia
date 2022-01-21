@@ -11,48 +11,62 @@ public class changeap extends JFrame{
     private JButton chavail;
     private JButton chtype;
     private JButton ex;
+    private JButton changecode;
+    private JButton changecity;
 
-    changeap()
+    changeap(Accommodation a)
     {
         setContentPane(change);
         setTitle("");
         setSize(450, 500);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
         setVisible(true);
         chname.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setName sn=new setName();
+                setName sn=new setName(a);
             }
         });
         nofb.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setBeds sb=new setBeds();
+                setBeds sb=new setBeds(a);
             }
         });
         chpr.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setPrice sp=new setPrice();
+                setPrice sp=new setPrice(a);
             }
         });
         chavail.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setAvail sav=new setAvail();
+                setAvail sav=new setAvail(a);
             }
         });
         chtype.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setType st=new setType();
+                setType st=new setType(a);
             }
         });
         ex.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                setVisible(false);
+            }
+        });
+        changecity.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setCity c=new setCity(a);
+            }
+        });
+        changecode.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setCode c=new setCode(a);
             }
         });
     }

@@ -10,7 +10,7 @@ public class setType extends JFrame{
     private JButton OKButton;
     private JLabel chtype;
 
-    setType()
+    setType(Accommodation a)
     {
         setContentPane(settype);
         setTitle("");
@@ -29,8 +29,9 @@ public class setType extends JFrame{
                 }
                 else
                 {
-                    int type=Integer.parseInt(typetf.getText());
-                    changeap cap=new changeap();
+                    a.setType(Integer.parseInt(typetf.getText()));
+                    setVisible(false);
+                    //changeap cap=new changeap();
                 }
             }
         });
